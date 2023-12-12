@@ -18,6 +18,7 @@ const Pricing = () => {
           width: "30%",
           minWidth: "250px",
           padding: "48px 12px",
+          borderRadius: "12px 0 12px 0",
         }}
       >
         <div
@@ -144,6 +145,7 @@ const Pricing = () => {
           width: "30%",
           minWidth: "250px",
           padding: "48px 12px",
+          borderRadius: "12px 0 12px 0",
         }}
       >
         <div
@@ -270,6 +272,7 @@ const Pricing = () => {
           width: "30%",
           minWidth: "250px",
           padding: "48px 12px",
+          borderRadius: "12px 0 12px 0",
         }}
       >
         <div

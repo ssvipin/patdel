@@ -5,25 +5,29 @@ const Navbar = () => {
     <div
       style={{
         background: "black",
-        height: "10%",
-        width: "100%",
+        // height: "10%",
+        // width: "100%",
         display: "flex",
         justifyContent: "space-between",
+        // border: "1px solid red",
       }}
     >
       <div
         style={{
-          height: "100%",
+          // height: "100%",
           width: "20%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          // border: "1px solid red",
         }}
       >
         <h1
           style={{
             color: "white",
             fontFamily: "roboto",
+            // border: "1px solid red",
+            margin: "0",
           }}
         >
           Kitchen
@@ -31,16 +35,19 @@ const Navbar = () => {
       </div>
       <div
         style={{
-          height: "100%",
+          // height: "100%",
           width: "70%",
+          // border: "1px solid red",
         }}
       >
         <ul
           style={{
             listStyleType: "none",
             // border: "1px solid red",
-            alignItems: "center",
+            // alignItems: "center",
             display: "flex",
+            // border: "1px solid red",
+            // height:"70%"
           }}
         >
           <li
@@ -52,6 +59,7 @@ const Navbar = () => {
               fontSize: "24px",
               fontWeight: "400",
               fontFamily: "roboto",
+              // border: "1px solid red",
             }}
           >
             Home
@@ -65,6 +73,7 @@ const Navbar = () => {
               fontSize: "24px",
               fontWeight: "400",
               fontFamily: "roboto",
+              // border: "1px solid red",
             }}
           >
             Blog
@@ -78,6 +87,7 @@ const Navbar = () => {
               marginRight: "16px",
               fontSize: "24px",
               fontWeight: "400",
+              // border: "1px solid red",
             }}
           >
             picture

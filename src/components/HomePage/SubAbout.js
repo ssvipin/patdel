@@ -9,26 +9,11 @@ import img7 from "../../media/w-13.jpeg";
 import img8 from "../../media/w-15.jpeg";
 import img9 from "../../media/w-16.jpeg";
 import img10 from "../../media/w-17.jpeg";
+import "./index.css";
 const SubAbout = () => {
   return (
-    <div
-      style={{
-        // border: "1px solid red",
-        marginTop: "48px",
-        display: "flex",
-        padding: "12px 48px",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-      }}
-    >
-      <div
-        style={{
-          // border: "1px solid red",
-          width: "50%",
-          padding: "12px 16px",
-          minWidth: "250px",
-        }}
-      >
+    <div className="sayAbout_container">
+      <div className="sayAbout_left">
         <div
           style={
             {
@@ -38,19 +23,29 @@ const SubAbout = () => {
         >
           <h1
             style={{
-              //   border: "1px solid red",
+              // border: "1px solid red",
               margin: "0",
               padding: "4px",
+              textAlign: "center",
             }}
           >
             Hi Foodies
           </h1>
         </div>
-        <div>
+        <div
+          style={{
+            marginTop: "40px",
+          }}
+        >
           <p
             style={{
-              //   border: "1px solid red",
+              // border: "1px solid red",
               padding: "4px",
+              textAlign: "center",
+              lineHeight: "30px",
+              wordSpacing: "3px",
+              letterSpacing: "0.5px",
+              fontSize: "24px",
             }}
           >
             Where culinary creativity meets home comfort—discover the art of
@@ -59,34 +54,27 @@ const SubAbout = () => {
           </p>
           <p
             style={{
-              //   border: "1px solid red",
+              // border: "1px solid red",
               padding: "4px",
+              textAlign: "center",
+              marginTop: "20px",
+              lineHeight: "20px",
+              wordSpacing: "3px",
+              color:"gray"
             }}
           >
             Where culinary creativity meets home comfort—discover the art of
-            exceptional cooking with our kitchen website, your gateway to
             inspired meals and gourmet delights.
           </p>
         </div>
       </div>
-      <div
-        style={{
-          //   border: "1px solid red",
-          width: "40%",
-          minWidth: "400px",
-          padding: "12px 16px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="sayAbout_right">
         <div
           style={{
             // border: "1px solid red",
             display: "flex",
             // justifyContent: "center",
-            width: "320px",
+            // maxWidth: "380px",
           }}
         >
           <img
@@ -96,6 +84,7 @@ const SubAbout = () => {
               height: "80px",
               borderRadius: "50%",
               objectFit: "cover",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -106,7 +95,8 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              right: "20px",
+              // right: "20px",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -117,7 +107,8 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              right: "40px",
+              // right: "40px",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -128,10 +119,11 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              right: "60px",
+              // right: "60px",
+              border: "6px solid #4c7d60",
             }}
           />
-          <img
+          {/* <img
             src={img5}
             style={{
               width: "80px",
@@ -139,16 +131,17 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              right: "80px",
+              // right: "80px",
+              border: "6px solid #4c7d60",
             }}
-          />
+          /> */}
         </div>
         <div
           style={{
             // border: "1px solid red",
             display: "flex",
             // justifyContent: "center",
-            width: "320px",
+            width: "380px",
             marginTop: "12px",
             // width: "100%",
           }}
@@ -160,6 +153,7 @@ const SubAbout = () => {
               height: "80px",
               borderRadius: "50%",
               objectFit: "cover",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -171,6 +165,7 @@ const SubAbout = () => {
               objectFit: "cover",
               position: "relative",
               right: "20px",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -182,6 +177,7 @@ const SubAbout = () => {
               objectFit: "cover",
               position: "relative",
               right: "40px",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -193,6 +189,7 @@ const SubAbout = () => {
               objectFit: "cover",
               position: "relative",
               right: "60px",
+              border: "6px solid #4c7d60",
             }}
           />
           <img
@@ -204,6 +201,7 @@ const SubAbout = () => {
               objectFit: "cover",
               position: "relative",
               right: "80px",
+              border: "6px solid #4c7d60",
             }}
           />
         </div>
