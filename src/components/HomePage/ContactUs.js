@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm";
 import ContactFormHelper from "./ContactFormHelper";
 
 const ContactUs = () => {
+  console.log("contact us page");
   return (
     <div
       style={{
@@ -17,7 +18,7 @@ const ContactUs = () => {
         style={{
           maxWidth: "93%",
           zIndex: "1",
-          backdropFilter:"blur(4px)"
+          backdropFilter: "blur(4px)",
         }}
       >
         <ContactForm />
@@ -35,4 +36,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default React.memo(ContactUs);

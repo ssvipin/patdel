@@ -1,0 +1,25 @@
+.signin {
+  display: inline-block;
+  /* border: "1px solid white", */
+  color: white;
+  margin-left: auto;
+  margin-right: 16px;
+  font-size: 24px;
+  font-weight: 400;
+  /* border: "1px solid red", */
+  background: transparent;
+  border: None;
+}
+.signin:hover , .home:hover {
+  cursor: pointer;
+}
+.home {
+  display: inline-block;
+  /* border: "1px solid white", */
+  margin-left: 16px;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: roboto;
+  /* border: "1px solid red", */
+}

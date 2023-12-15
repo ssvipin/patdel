@@ -11,6 +11,7 @@ import img9 from "../../media/w-16.jpeg";
 import img10 from "../../media/w-17.jpeg";
 import "./index.css";
 const SubAbout = () => {
+  console.log("say about");
   return (
     <div className="sayAbout_container">
       <div className="sayAbout_left">
@@ -60,7 +61,7 @@ const SubAbout = () => {
               marginTop: "20px",
               lineHeight: "20px",
               wordSpacing: "3px",
-              color:"gray"
+              color: "gray",
             }}
           >
             Where culinary creativity meets home comfort—discover the art of
@@ -210,4 +211,4 @@ const SubAbout = () => {
   );
 };
 
-export default SubAbout;
+export default React.memo(SubAbout);

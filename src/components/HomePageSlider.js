@@ -8,6 +8,7 @@ import img1 from "../media/woman-cooking-kitchen.jpg";
 import img2 from "../media/woman-chef-cooking-vegetables-pan.jpg";
 import img3 from "../media/woman-cooking-kitchen (1).jpg";
 const HomePageSlider = () => {
+  console.log("home page slider");
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <AutoplaySlider
@@ -26,4 +27,4 @@ const HomePageSlider = () => {
   );
 };
 
-export default HomePageSlider;
+export default React.memo(HomePageSlider);

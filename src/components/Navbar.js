@@ -1,6 +1,10 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import "./parent.css";
 const Navbar = () => {
+  const handleSign = () => {
+    window.location.href = "/signin";
+  };
   return (
     <div
       style={{
@@ -51,15 +55,9 @@ const Navbar = () => {
           }}
         >
           <li
-            style={{
-              display: "inline-block",
-              //   border: "1px solid white",
-              marginLeft: "16px",
-              color: "white",
-              fontSize: "24px",
-              fontWeight: "400",
-              fontFamily: "roboto",
-              // border: "1px solid red",
+            className="home"
+            onClick={() => {
+              window.location.href = "/";
             }}
           >
             Home
@@ -78,20 +76,9 @@ const Navbar = () => {
           >
             Blog
           </li>
-          <li
-            style={{
-              display: "inline-block",
-              //   border: "1px solid white",
-              color: "white",
-              marginLeft: "auto",
-              marginRight: "16px",
-              fontSize: "24px",
-              fontWeight: "400",
-              // border: "1px solid red",
-            }}
-          >
-            picture
-          </li>
+          <button className="signin" onClick={handleSign}>
+            Signin
+          </button>
         </ul>
       </div>
     </div>

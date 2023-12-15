@@ -8,7 +8,7 @@ const Footer = () => {
         background: "black",
         // position: "absolute",
         // bottom: "0",
-        width: "100%",
+        // width: "100%",
         display: "flex",
         justifyContent: "space-evenly",
         marginTop: "48px",
