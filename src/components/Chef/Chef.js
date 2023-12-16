@@ -11,7 +11,7 @@ const Chef = ({ chefClicked }) => {
     <div
       style={{
         // border: "1px solid red",
-        height: "750px",
+        // height: "750px",
         padding: "12px 16px",
         display: "flex",
         background: "#f2f2f2",

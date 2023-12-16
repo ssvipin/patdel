@@ -10,7 +10,8 @@
   background: transparent;
   border: None;
 }
-.signin:hover , .home:hover {
+.signin:hover,
+.home:hover {
   cursor: pointer;
 }
 .home {
@@ -22,4 +23,18 @@
   font-weight: 400;
   font-family: roboto;
   /* border: "1px solid red", */
+}
+.navbar_menu {
+  /* height: "100%", */
+  width: 70%;
+  /* border: "1px solid red", */
+}
+
+@media only screen and (max-width: 620px) {
+  .navbar_menu {
+    /* height: "100%", */
+    width: 70%;
+    /* border: "1px solid red", */
+    display: none;
+  }
 }

@@ -1,6 +1,12 @@
 // Signup.js
 
 import React, { useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  getAuth,
+} from "firebase/auth";
+import { database } from "../FirebaseConfig";
 // import './Signup.css'; // Import your CSS file for styling if needed
 
 const Signup = () => {
@@ -15,7 +21,25 @@ const Signup = () => {
     // Here, you can implement your signup logic (e.g., create a new user)
     // For simplicity, this example just sets signedUp to true if all fields are not empty and passwords match
     if (username && email && password && password === confirmPassword) {
-      setSignedUp(true);
+      createUserWithEmailAndPassword(database, email, password)
+        .then((userCredential) => {
+          const auth = getAuth();
+          updateProfile(auth.currentUser, {
+            displayName: username,
+            photoURL: "/abc",
+          })
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+          setSignedUp(true);
+          console.log("auth data", userCredential);
+        })
+        .catch((e) => {
+          console.log("error=>", e);
+        });
       // You might want to redirect the user to a login page upon successful signup
       // You can use React Router's history or redirect accordingly
     } else {
@@ -81,9 +105,10 @@ const Signup = () => {
               justifyContent: "space-between",
               alignItems: "center",
               boxSizing: "border-box",
-              //   height: "65px",
               alignItems: "center",
+              //   height: "65px",
             }}
+            key={"username"}
           >
             Username:
             <input
@@ -109,6 +134,7 @@ const Signup = () => {
               //   height: "65px",
               alignItems: "center",
             }}
+            key = {"email"}
           >
             Email:
             <input

@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-
+import { database } from "../FirebaseConfig";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
+} from "firebase/auth";
+import SignInWithGoogleButton from "./SignInWithGoogleButton";
+import SignInWithGithubButton from "./SignInWithGithubButton";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,10 +19,42 @@ const Login = () => {
     // For simplicity, this example just sets loggedIn to true if username and password are not empty
     if (username && password) {
       setLoggedIn(true);
+      signInWithEmailAndPassword(database, username, password)
+        .then((data) => {
+          console.log("auth data", data);
+          localStorage.setItem("token", JSON.stringify(data.user.accessToken));
+        })
+        .catch((e) => {
+          console.log("error=>", e);
+        });
       // You might want to redirect the user to another page upon successful login
       // You can use React Router's history or redirect accordingly
     } else {
       alert("Please enter username and password.");
+    }
+  };
+  const handleSignInWithGoogle = async (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(database, provider);
+      const user = result.user;
+      console.log("Successfully signed in with Google:", user);
+      // You can now use the 'user' object for further operations
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+    }
+  };
+  const handleSignInWithGithub = async (e) => {
+    e.preventDefault();
+    const provider = new GithubAuthProvider();
+    try {
+      const result = await signInWithPopup(database, provider);
+      const user = result.user;
+      console.log("Successfully signed in with GitHub:", user);
+      // You can now use the 'user' object for further operations
+    } catch (error) {
+      console.error("Error signing in with GitHub:", error);
     }
   };
 
@@ -23,7 +63,7 @@ const Login = () => {
       style={{
         // border: "1px solid red",
         padding: "12px 16px",
-        height: "50%",
+        // height: "50%",
         marginBottom: "-48px",
         display: "flex",
         alignItems: "center",
@@ -32,7 +72,7 @@ const Login = () => {
     >
       <div
         style={{
-          border: "1px solid red",
+          // border: "1px solid red",
           display: "flex",
           flexDirection: "column",
           padding: "40px",
@@ -46,7 +86,7 @@ const Login = () => {
         >
           <h2
             style={{
-            //   border: "1px solid red",
+              //   border: "1px solid red",
               padding: "4px",
               textAlign: "center",
             }}
@@ -55,7 +95,7 @@ const Login = () => {
           </h2>
         </div>
         <form
-          onSubmit={handleLogin}
+          // onSubmit={handleLogin}
           style={{
             // border: "1px solid red",
             display: "flex",
@@ -66,7 +106,7 @@ const Login = () => {
         >
           <label
             style={{
-            //   border: "1px solid red",
+              //   border: "1px solid red",
               padding: "4px",
               display: "flex",
               width: "362px",
@@ -87,7 +127,7 @@ const Login = () => {
           </label>
           <label
             style={{
-            //   border: "1px solid red",
+              //   border: "1px solid red",
               padding: "4px",
               display: "flex",
               width: "362px",
@@ -107,16 +147,22 @@ const Login = () => {
               }}
             />
           </label>
+          <SignInWithGoogleButton
+            handleSignInWithGoogle={handleSignInWithGoogle}
+          />
+          <SignInWithGithubButton
+            handleSignInWithGithub={handleSignInWithGithub}
+          />
           <button
             type="submit"
             style={{
               //   border: "1px solid red",
               //   padding: "4px",
               //   display: "flex",
-              width: "362px",
+              // width: "362px",
               justifyContent: "space-between",
               alignItems: "center",
-              marginTop: "80px",
+              marginTop: "20px",
               height: "34px",
             }}
           >
@@ -124,7 +170,7 @@ const Login = () => {
           </button>
           <div
             style={{
-            //   border: "1px solid red",
+              //   border: "1px solid red",
               marginTop: "20px",
               padding: "8px",
             }}
