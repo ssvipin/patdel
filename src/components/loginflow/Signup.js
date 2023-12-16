@@ -7,26 +7,24 @@ import {
   getAuth,
 } from "firebase/auth";
 import { database } from "../FirebaseConfig";
-// import './Signup.css'; // Import your CSS file for styling if needed
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const [signedUp, setSignedUp] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
-    // Here, you can implement your signup logic (e.g., create a new user)
-    // For simplicity, this example just sets signedUp to true if all fields are not empty and passwords match
     if (username && email && password && password === confirmPassword) {
       createUserWithEmailAndPassword(database, email, password)
         .then((userCredential) => {
           const auth = getAuth();
           updateProfile(auth.currentUser, {
             displayName: username,
-            photoURL: "/abc",
+            photoURL: photoURL,
           })
             .then((data) => {
               console.log(data);
@@ -40,8 +38,6 @@ const Signup = () => {
         .catch((e) => {
           console.log("error=>", e);
         });
-      // You might want to redirect the user to a login page upon successful signup
-      // You can use React Router's history or redirect accordingly
     } else {
       alert("Please fill in all fields correctly.");
     }
@@ -57,16 +53,19 @@ const Signup = () => {
         alignItems: "center",
         justifyContent: "center",
         // height: "50%",
+        background: "#f39c12",
       }}
     >
       <div
         style={{
-          border: "1px solid red",
+          // border: "1px solid red",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "40px",
+          padding: "20px",
           width: "auto",
+          background: "#fff",
+          borderRadius: "5px",
         }}
       >
         <div
@@ -82,7 +81,7 @@ const Signup = () => {
               textAlign: "center",
             }}
           >
-            Sign Up
+            Welcome to Kitchen Kings
           </h2>
         </div>
         <form
@@ -90,7 +89,7 @@ const Signup = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "40px",
+            marginTop: "30px",
             // width: "392px",
             // border: "1px solid red",
             padding: "4px",
@@ -134,7 +133,7 @@ const Signup = () => {
               //   height: "65px",
               alignItems: "center",
             }}
-            key = {"email"}
+            key={"email"}
           >
             Email:
             <input
@@ -199,6 +198,32 @@ const Signup = () => {
               }}
             />
           </label>
+          <label
+            style={{
+              //   border: "1px solid red",
+              padding: "4px",
+              display: "flex",
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+              boxSizing: "border-box",
+              alignItems: "center",
+              //   height: "65px",
+            }}
+            key={"username"}
+          >
+            photoURL:
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setPhotoURL(e.target.value)}
+              style={{
+                height: "34px",
+                width: "242px",
+                marginLeft: "8px",
+              }}
+            />
+          </label>
           <button
             type="submit"
             style={{
@@ -208,7 +233,7 @@ const Signup = () => {
               //   width: "392px",
               justifyContent: "space-between",
               alignItems: "center",
-              marginTop: "80px",
+              marginTop: "50px",
               height: "34px",
             }}
           >

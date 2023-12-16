@@ -68,6 +68,7 @@ const Login = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        background: "#f39c12",
       }}
     >
       <div
@@ -75,7 +76,9 @@ const Login = () => {
           // border: "1px solid red",
           display: "flex",
           flexDirection: "column",
-          padding: "40px",
+          padding: "20px",
+          background: "#f2f2f2",
+          borderRadius: "5px",
         }}
       >
         <div
@@ -91,7 +94,7 @@ const Login = () => {
               textAlign: "center",
             }}
           >
-            Login
+            Welcome back Foodiee
           </h2>
         </div>
         <form
@@ -101,7 +104,7 @@ const Login = () => {
             display: "flex",
             flexDirection: "column",
             padding: "8px",
-            marginTop: "40px",
+            marginTop: "30px",
           }}
         >
           <label

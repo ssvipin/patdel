@@ -4,16 +4,7 @@ import { MdOutlineTableRestaurant } from "react-icons/md";
 const Pricing = () => {
   console.log("pricing page");
   return (
-    <div
-      style={{
-        // border: "1px solid red",
-        marginTop: "48px",
-        padding: "12px 48px",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-      }}
-    >
+    <div className="pricing_container">
       <div
         style={{
           border: "1px solid red",
@@ -21,6 +12,7 @@ const Pricing = () => {
           minWidth: "250px",
           padding: "48px 12px",
           borderRadius: "12px 0 12px 0",
+          backgroundColor: "#34495e",
         }}
       >
         <div
@@ -42,6 +34,7 @@ const Pricing = () => {
         <div
           style={{
             // border: "1px solid red",
+            color: "#f2f2f2",
           }}
         >
           <h2

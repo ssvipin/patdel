@@ -15,7 +15,7 @@ const SignInWithGoogleButton = ({ handleSignInWithGoogle }) => {
     alignItems: "center",
     justifyContent: "center",
     fontSize: "16px",
-    marginTop: "80px",
+    marginTop: "50px",
   };
 
   const iconStyles = {

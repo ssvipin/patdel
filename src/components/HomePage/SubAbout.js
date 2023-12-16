@@ -28,6 +28,8 @@ const SubAbout = () => {
               margin: "0",
               padding: "4px",
               textAlign: "center",
+              color: "#4c7d60",
+
             }}
           >
             Hi Foodies
@@ -47,6 +49,7 @@ const SubAbout = () => {
               wordSpacing: "3px",
               letterSpacing: "0.5px",
               fontSize: "24px",
+              color: "#4c7d60",
             }}
           >
             Where culinary creativity meets home comfort—discover the art of
@@ -61,7 +64,7 @@ const SubAbout = () => {
               marginTop: "20px",
               lineHeight: "20px",
               wordSpacing: "3px",
-              color: "gray",
+              color: "#4c7d60",
             }}
           >
             Where culinary creativity meets home comfort—discover the art of
@@ -74,8 +77,6 @@ const SubAbout = () => {
           style={{
             // border: "1px solid red",
             display: "flex",
-            // justifyContent: "center",
-            // maxWidth: "380px",
           }}
         >
           <img
@@ -96,7 +97,6 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              // right: "20px",
               border: "6px solid #4c7d60",
             }}
           />
@@ -108,7 +108,6 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              // right: "40px",
               border: "6px solid #4c7d60",
             }}
           />
@@ -120,7 +119,6 @@ const SubAbout = () => {
               borderRadius: "50%",
               objectFit: "cover",
               position: "relative",
-              // right: "60px",
               border: "6px solid #4c7d60",
             }}
           />

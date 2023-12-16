@@ -85,15 +85,7 @@ const Navbar = () => {
           </button>
         </ul>
       </div>
-      <div
-        style={{
-          // border: "1px solid red",
-          width: "70px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="hamburger">
         <RxHamburgerMenu
           style={{
             color: "#f2f2f2",

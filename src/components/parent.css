@@ -29,6 +29,14 @@
   width: 70%;
   /* border: "1px solid red", */
 }
+.hamburger {
+  /* border: "1px solid red", */
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
 
 @media only screen and (max-width: 620px) {
   .navbar_menu {
@@ -36,5 +44,12 @@
     width: 70%;
     /* border: "1px solid red", */
     display: none;
+  }
+  .hamburger {
+    /* border: "1px solid red", */
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
