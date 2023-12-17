@@ -174,7 +174,7 @@ const Chef = ({ chefClicked }) => {
             // border: "1px solid red",
             width: "100%",
             position: "absolute",
-            top: "100px",
+            // top: "100px",
           }}
         >
           <img
@@ -182,6 +182,7 @@ const Chef = ({ chefClicked }) => {
             style={{
               //   border: "1px solid red",
               width: "100%",
+              // height:"100%"
             }}
           />
         </div>
@@ -190,14 +191,17 @@ const Chef = ({ chefClicked }) => {
             // border: "1px solid red",
             width: "100%",
             position: "absolute",
-            top: "0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <img
             src={img2}
             style={{
-              //   border: "1px solid red",
-              width: "100%",
+              // border: "1px solid red",
+              width: "50%",
+              // height: "10%",
             }}
           />
         </div>
