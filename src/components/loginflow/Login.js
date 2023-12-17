@@ -21,31 +21,32 @@ const Login = () => {
       setLoggedIn(true);
       signInWithEmailAndPassword(database, username, password)
         .then((data) => {
+          window.location.href = "/";
           navigate("/");
+
           console.log("auth data", data);
-          localStorage.setItem("token", JSON.stringify(data.user.accessToken));
         })
         .catch((e) => {
           console.log("error=>", e);
         });
-      // You might want to redirect the user to another page upon successful login
-      // You can use React Router's history or redirect accordingly
     } else {
       alert("Please enter username and password.");
     }
   };
   const handleSignInWithGoogle = async (e) => {
-    e.preventDefault();
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithRedirect(database, provider);
       const user = result.user;
-      console.log("Successfully signed in with Google:", user);
+      window.location.href = "/";
       navigate("/");
+
+      console.log("Successfully signed in with Google:", user);
       // You can now use the 'user' object for further operations
     } catch (error) {
       console.error("Error signing in with Google:", error);
     }
+    e.preventDefault();
   };
   const handleSignInWithGithub = async (e) => {
     e.preventDefault();
@@ -53,6 +54,8 @@ const Login = () => {
     try {
       const result = await signInWithRedirect(database, provider);
       const user = result.user;
+      navigate("/");
+
       console.log("Successfully signed in with GitHub:", user);
       // You can now use the 'user' object for further operations
     } catch (error) {

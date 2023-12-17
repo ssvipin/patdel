@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/loginflow/Login";
 import Signup from "./components/loginflow/Signup";
 import NotFound from "./components/NotFound";
+import UserDashboard from "./components/loginflow/UserDashboard";
+import SavedRecipe from "./components/Chef/SavedRecipe";
 function App() {
   return (
     <div
@@ -22,6 +24,8 @@ function App() {
           <Route path="/" element={<Index />}></Route>
           <Route path="/signin" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/dashboard" element={<UserDashboard />}></Route>
+          <Route path="/favorite" element={<SavedRecipe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

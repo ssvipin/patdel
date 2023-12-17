@@ -1,13 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./parent.css";
+import { Dropdown } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const Navbar = () => {
+  const [photoURL, setPhotoURL] = useState("");
+  const [displayName, setDisplayName] = useState("");
+
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("vipin", user);
+      setDisplayName(user.displayName);
+      setPhotoURL(user.photoURL);
+      const uid = user.uid;
+      // ...
+    } else {
+      setDisplayName("");
+      setPhotoURL("");
+      // User is signed out
+      // ...
+    }
+  });
   const handleSign = () => {
     window.location.href = "/signin";
   };
-  console.log(window);
+  const handleLogout = async (e) => {
+    signOut(auth)
+      .then((data) => {
+        console.log(data);
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+  useEffect(() => {
+    console.log(
+      "vipsu",
+
+      JSON.parse(localStorage.getItem("recipe"))?.length,
+      localStorage.getItem("recipe"),
+      JSON.parse(localStorage.getItem("recipe"))?.length > 0
+    );
+  }, [localStorage?.getItem("recipe")]);
+
+  // console.log(window);
   return (
     <div
       style={{
@@ -50,7 +91,9 @@ const Navbar = () => {
             // alignItems: "center",
             display: "flex",
             // border: "1px solid red",
-            // height:"70%"
+            height: "100%",
+            margin: "0",
+            alignItems: "center",
           }}
         >
           <li
@@ -80,11 +123,66 @@ const Navbar = () => {
           >
             Blog
           </li>
-          <button className="signin" onClick={handleSign}>
-            Signin
-          </button>
+          {localStorage.getItem("recipe") &&
+            JSON.parse(localStorage.getItem("recipe"))?.length > 0 && (
+              <li
+                style={{
+                  display: "inline-block",
+                  //   border: "1px solid white",
+                  marginLeft: "16px",
+                  fontSize: "24px",
+                  fontWeight: "400",
+                  fontFamily: "roboto",
+                  // border: "1px solid red",
+                  color: `${
+                    window.location.pathname === "/favorite"
+                      ? "#4c7d60"
+                      : "#fff"
+                  }`,
+                }}
+                onClick={() => {
+                  window.location.href = "/favorite";
+                }}
+              >
+                Favorite
+              </li>
+            )}
+          {displayName?.length > 0 ? (
+            <button className="signin">
+              <Dropdown>
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                  }}
+                >
+                  <img
+                    src={photoURL}
+                    style={{
+                      borderRadius: "50%",
+                      height: "40px",
+                    }}
+                    alt="logo"
+                  />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1" onClick={handleLogout}>
+                    Log out
+                  </Dropdown.Item>
+                  <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </button>
+          ) : (
+            <button className="signin" onClick={handleSign}>
+              Signin
+            </button>
+          )}
         </ul>
       </div>
+
       <div className="hamburger">
         <RxHamburgerMenu
           style={{
