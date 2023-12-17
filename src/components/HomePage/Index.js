@@ -7,6 +7,7 @@ import ContactForm from "./ContactForm";
 import ContactUs from "./ContactUs";
 import "./index.css";
 import Chef from "../Chef/Chef";
+import ChefParent from "../Chef/ChefParent";
 const Index = () => {
   const [chefClicked, setChefClicked] = useState([]);
   console.log("vipin", chefClicked);
@@ -14,7 +15,8 @@ const Index = () => {
     <div>
       {chefClicked?.length > 0 ? (
         <div>
-          <Chef chefClicked={chefClicked} />
+          <ChefParent chefClicked={chefClicked} />
+          {/* <Chef chefClicked={chefClicked} /> */}
         </div>
       ) : (
         <div>
@@ -22,7 +24,7 @@ const Index = () => {
           <SubAbout />
           <ChefCards setChefClicked={setChefClicked} />
           <Pricing />
-          <ContactUs />
+          {/* <ContactUs /> */}
         </div>
       )}
     </div>

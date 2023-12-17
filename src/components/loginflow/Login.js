@@ -3,24 +3,25 @@ import { database } from "../FirebaseConfig";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup,
   GithubAuthProvider,
+  signInWithRedirect,
 } from "firebase/auth";
 import SignInWithGoogleButton from "./SignInWithGoogleButton";
 import SignInWithGithubButton from "./SignInWithGithubButton";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    // Here, you can implement your login logic (e.g., check credentials)
-    // For simplicity, this example just sets loggedIn to true if username and password are not empty
     if (username && password) {
       setLoggedIn(true);
       signInWithEmailAndPassword(database, username, password)
         .then((data) => {
+          navigate("/");
           console.log("auth data", data);
           localStorage.setItem("token", JSON.stringify(data.user.accessToken));
         })
@@ -37,9 +38,10 @@ const Login = () => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithPopup(database, provider);
+      const result = await signInWithRedirect(database, provider);
       const user = result.user;
       console.log("Successfully signed in with Google:", user);
+      navigate("/");
       // You can now use the 'user' object for further operations
     } catch (error) {
       console.error("Error signing in with Google:", error);
@@ -49,7 +51,7 @@ const Login = () => {
     e.preventDefault();
     const provider = new GithubAuthProvider();
     try {
-      const result = await signInWithPopup(database, provider);
+      const result = await signInWithRedirect(database, provider);
       const user = result.user;
       console.log("Successfully signed in with GitHub:", user);
       // You can now use the 'user' object for further operations
@@ -98,7 +100,7 @@ const Login = () => {
           </h2>
         </div>
         <form
-          // onSubmit={handleLogin}
+          onSubmit={handleLogin}
           style={{
             // border: "1px solid red",
             display: "flex",

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/loginflow/Login";
 import Signup from "./components/loginflow/Signup";
+import NotFound from "./components/NotFound";
 function App() {
   return (
     <div
@@ -17,28 +18,11 @@ function App() {
     >
       <Navbar />
       <Router>
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav> */}
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Routes>
-          {/* <Route path="/about"><About /></Route> */}
-          {/* <Route path="/users"><Users /></Route> */}
           <Route path="/" element={<Index />}></Route>
           <Route path="/signin" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
       <Footer />

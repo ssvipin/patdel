@@ -3,437 +3,192 @@ import { MdOutlineTableRestaurant } from "react-icons/md";
 
 const Pricing = () => {
   console.log("pricing page");
+  const pricingCards = [
+    {
+      logo: (
+        <MdOutlineTableRestaurant
+          style={{
+            fontSize: "54px",
+            fontWeight: "300",
+            // color: "rgba(0,0,0,0.5)",
+            color: "#4c7d60",
+          }}
+        />
+      ),
+      package_name: "Intimate Package",
+      price: "$289",
+      validity: "per event",
+      menu: "2-4 serving Menu",
+      course: "8 main course menu",
+      menu_type: "Customised Menu",
+      isChef_available: "chef's Expertise",
+      is_grocery: "Grocery Shopping",
+      bonus: "Prepration & Clean Up",
+      key: "key1",
+    },
+    {
+      logo: (
+        <MdOutlineTableRestaurant
+          style={{
+            fontSize: "54px",
+            fontWeight: "300",
+            // color: "rgba(0,0,0,0.5)",
+            color: "#4c7d60",
+          }}
+        />
+      ),
+      package_name: "Intimate Package",
+      price: "$289",
+      validity: "per event",
+      menu: "2-4 serving Menu",
+      course: "8 main course menu",
+      menu_type: "Customised Menu",
+      isChef_available: "chef's Expertise",
+      is_grocery: "Grocery Shopping",
+      bonus: "Prepration & Clean Up",
+      key: "key2",
+    },
+    {
+      logo: (
+        <MdOutlineTableRestaurant
+          style={{
+            fontSize: "54px",
+            fontWeight: "300",
+            // color: "rgba(0,0,0,0.5)",
+            color: "#4c7d60",
+          }}
+        />
+      ),
+      package_name: "Intimate Package",
+      price: "$289",
+      validity: "per event",
+      menu: "2-4 serving Menu",
+      course: "8 main course menu",
+      menu_type: "Customised Menu",
+      isChef_available: "chef's Expertise",
+      is_grocery: "Grocery Shopping",
+      bonus: "Prepration & Clean Up",
+      key: "key3",
+    },
+  ];
   return (
     <div className="pricing_container">
-      <div
-        style={{
-          border: "1px solid red",
-          width: "30%",
-          minWidth: "250px",
-          padding: "48px 12px",
-          borderRadius: "12px 0 12px 0",
-          backgroundColor: "#34495e",
-        }}
-      >
-        <div
-          style={{
-            // border: "1px solid red",
-            padding: "5px",
-            textAlign: "center",
-            marginTop: "-20px",
-          }}
-        >
-          <MdOutlineTableRestaurant
-            style={{
-              fontSize: "54px",
-              fontWeight: "300",
-              color: "rgba(0,0,0,0.5)",
-            }}
-          />
-        </div>
-        <div
-          style={{
-            // border: "1px solid red",
-            color: "#f2f2f2",
-          }}
-        >
-          <h2
-            style={{
-              // border: "1px solid red",
-              marginBottom: "15px",
-              margin: "5px",
-              textAlign: "center",
-            }}
-          >
-            Intimate Package
-          </h2>
+      {pricingCards.map((item) => {
+        return (
           <div
             style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
+              width: "25%",
+              minWidth: "250px",
+              padding: "48px 12px",
+              background: "#fff",
             }}
+            key={item.key}
           >
-            <h1
+            <div
               style={{
-                // border: "1px solid red",
-                fontSize: "40px",
+                padding: "5px",
+                textAlign: "center",
+                marginTop: "-20px",
               }}
             >
-              $289
-            </h1>
-            <p
-              style={
-                {
-                  // border: "1px solid red",
-                }
-              }
+              {item.logo}
+            </div>
+            <div
+              style={{
+                color: "#4c7d60",
+              }}
             >
-              per event
-            </p>
+              <h2
+                style={{
+                  marginBottom: "15px",
+                  margin: "5px",
+                  textAlign: "center",
+                }}
+              >
+                {item.package_name}
+              </h2>
+              <div
+                style={{
+                  marginBottom: "20px",
+                  padding: "5px",
+                  textAlign: "center",
+                }}
+              >
+                <h1
+                  style={{
+                    fontSize: "40px",
+                  }}
+                >
+                  {item.price}
+                </h1>
+                <p>{item.validity}</p>
+              </div>
+              <div
+                style={{
+                  marginBottom: "20px",
+                  padding: "5px",
+                  textAlign: "center",
+                }}
+              >
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.menu}
+                </p>
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.course}
+                </p>
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.menu_type}
+                </p>
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.isChef_available}
+                </p>
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.is_grocery}
+                </p>
+                <p
+                  style={{
+                    marginBottom: "4px",
+                  }}
+                >
+                  {item.bonus}
+                </p>
+              </div>
+              <div>
+                <button
+                  style={{
+                    width: "100%",
+                    height: "48px",
+                    border: "none",
+                    background: "#f2f2f2",
+                  }}
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
           </div>
-          <div
-            style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              2-4 serving Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              8 main course Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Customised Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              chef's Expertise
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Grocery Shopping
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Preparation & Clean Up
-            </p>
-          </div>
-          <div
-            style={
-              {
-                //   border: "1px solid red",
-              }
-            }
-          >
-            <button
-              style={{
-                width: "100%",
-                height: "48px",
-                background: "transparent",
-                border: "1px solid red",
-              }}
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          border: "1px solid red",
-          width: "30%",
-          minWidth: "250px",
-          padding: "48px 12px",
-          borderRadius: "12px 0 12px 0",
-        }}
-      >
-        <div
-          style={
-            {
-              // border: "1px solid red",
-            }
-          }
-        >
-          <div
-            style={{
-              // border: "1px solid red",
-              padding: "5px",
-              textAlign: "center",
-              marginTop: "-20px",
-            }}
-          >
-            <MdOutlineTableRestaurant
-              style={{
-                fontSize: "54px",
-                fontWeight: "300",
-                color: "rgba(0,0,0,0.5)",
-              }}
-            />
-          </div>
-          <h2
-            style={{
-              //   border: "1px solid red",
-              marginBottom: "15px",
-              margin: "5px",
-              textAlign: "center",
-            }}
-          >
-            Intimate Package
-          </h2>
-          <div
-            style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
-            }}
-          >
-            <h1
-              style={{
-                // border: "1px solid red",
-                fontSize: "40px",
-              }}
-            >
-              $289
-            </h1>
-            <p
-              style={
-                {
-                  // border: "1px solid red",
-                }
-              }
-            >
-              per event
-            </p>
-          </div>
-          <div
-            style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              2-4 serving Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              8 main course Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Customised Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              chef's Expertise
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Grocery Shopping
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Preparation & Clean Up
-            </p>
-          </div>
-          <div
-            style={
-              {
-                //   border: "1px solid red",
-              }
-            }
-          >
-            <button
-              style={{
-                width: "100%",
-                height: "48px",
-                background: "transparent",
-                border: "1px solid red",
-              }}
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          border: "1px solid red",
-          width: "30%",
-          minWidth: "250px",
-          padding: "48px 12px",
-          borderRadius: "12px 0 12px 0",
-        }}
-      >
-        <div
-          style={
-            {
-              // border: "1px solid red",
-            }
-          }
-        >
-          <div
-            style={{
-              // border: "1px solid red",
-              padding: "5px",
-              textAlign: "center",
-              marginTop: "-20px",
-            }}
-          >
-            <MdOutlineTableRestaurant
-              style={{
-                fontSize: "54px",
-                fontWeight: "300",
-                color: "rgba(0,0,0,0.5)",
-              }}
-            />
-          </div>
-          <h2
-            style={{
-              //   border: "1px solid red",
-              marginBottom: "15px",
-              margin: "5px",
-              textAlign: "center",
-            }}
-          >
-            Intimate Package
-          </h2>
-          <div
-            style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
-            }}
-          >
-            <h1
-              style={{
-                // border: "1px solid red",
-                fontSize: "40px",
-              }}
-            >
-              $289
-            </h1>
-            <p
-              style={
-                {
-                  // border: "1px solid red",
-                }
-              }
-            >
-              per event
-            </p>
-          </div>
-          <div
-            style={{
-              marginBottom: "20px",
-              padding: "5px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              2-4 serving Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              8 main course Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Customised Menu
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              chef's Expertise
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Grocery Shopping
-            </p>
-            <p
-              style={{
-                // border: "1px solid red",
-                marginBottom: "4px",
-              }}
-            >
-              Preparation & Clean Up
-            </p>
-          </div>
-          <div
-            style={
-              {
-                //   border: "1px solid red",
-              }
-            }
-          >
-            <button
-              style={{
-                width: "100%",
-                height: "48px",
-                background: "transparent",
-                border: "1px solid red",
-              }}
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

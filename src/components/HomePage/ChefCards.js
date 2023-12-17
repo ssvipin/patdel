@@ -98,13 +98,9 @@ const ChefCards = ({ setChefClicked }) => {
               <div
                 style={{
                   // border: "1px solid black",
-                  // background: "rgb(88 31 91)",
-                  // background: "rgba(255,255,255,0)",
                   borderTopStyle: "none",
-                  // borderRadius: "32px",
                   // boxShadow:
                   // "0px 2px 4px -1px rgba(255,255,255,0.2), 0px 4px 5px 0px rgba(255,255,255,0.14), 0px 1px 10px 0px rgba(255,255,255,0.12)",
-                  // boxShadow: "4px 4px 2px 0px #f2f2f2",
                   display: "flex",
                 }}
               >
@@ -117,13 +113,7 @@ const ChefCards = ({ setChefClicked }) => {
                     // border: "1px solid red",
                   }}
                 />
-                <div
-                  style={{
-                    // border: "1px solid black",
-                    padding: "8px",
-                    // borderRadius: "0 0 32px 32px",
-                  }}
-                >
+                <div className="chefCards_data">
                   <p
                     style={{
                       // border: "1px solid red",
