@@ -28,6 +28,7 @@ const Signup = () => {
           })
             .then((data) => {
               console.log(data);
+              window.location.href = "/";
             })
             .catch((e) => {
               console.log(e);
@@ -215,7 +216,7 @@ const Signup = () => {
             photoURL:
             <input
               type="text"
-              value={username}
+              value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               style={{
                 height: "34px",

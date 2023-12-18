@@ -9,7 +9,9 @@ import Signup from "./components/loginflow/Signup";
 import NotFound from "./components/NotFound";
 import UserDashboard from "./components/loginflow/UserDashboard";
 import SavedRecipe from "./components/Chef/SavedRecipe";
+import { useState } from "react";
 function App() {
+  const [updateCounter, setUpdateCounter] = useState(0);
   return (
     <div
       style={{
@@ -18,10 +20,18 @@ function App() {
         overflowX: "hidden",
       }}
     >
-      <Navbar />
+      <Navbar updateCounter={updateCounter} />
       <Router>
         <Routes>
-          <Route path="/" element={<Index />}></Route>
+          <Route
+            path="/"
+            element={
+              <Index
+                setUpdateCounter={setUpdateCounter}
+                updateCounter={updateCounter}
+              />
+            }
+          ></Route>
           <Route path="/signin" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/dashboard" element={<UserDashboard />}></Route>

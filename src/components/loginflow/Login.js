@@ -27,6 +27,8 @@ const Login = () => {
           console.log("auth data", data);
         })
         .catch((e) => {
+          alert("Please enter username and password.");
+
           console.log("error=>", e);
         });
     } else {
@@ -36,14 +38,19 @@ const Login = () => {
   const handleSignInWithGoogle = async (e) => {
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithRedirect(database, provider);
-      const user = result.user;
-      window.location.href = "/";
-      navigate("/");
+      signInWithRedirect(database, provider)
+        .then((data) => {
+          window.location.href = "/";
+        })
+        .catch((e) => {
+          console.log(e);
+        });
 
-      console.log("Successfully signed in with Google:", user);
+      console.log("Successfully signed in with Google:");
       // You can now use the 'user' object for further operations
     } catch (error) {
+      alert("Invalid username or password.");
+
       console.error("Error signing in with Google:", error);
     }
     e.preventDefault();
@@ -59,6 +66,8 @@ const Login = () => {
       console.log("Successfully signed in with GitHub:", user);
       // You can now use the 'user' object for further operations
     } catch (error) {
+      alert("Invalid username or password.");
+
       console.error("Error signing in with GitHub:", error);
     }
   };

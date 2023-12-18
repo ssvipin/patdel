@@ -5,12 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
-const Navbar = () => {
+const Navbar = ({ updateCounter }) => {
   const [photoURL, setPhotoURL] = useState("");
   const [displayName, setDisplayName] = useState("");
 
   const auth = getAuth();
-
   onAuthStateChanged(auth, (user) => {
     if (user) {
       console.log("vipin", user);
@@ -46,7 +45,7 @@ const Navbar = () => {
       localStorage.getItem("recipe"),
       JSON.parse(localStorage.getItem("recipe"))?.length > 0
     );
-  }, [localStorage?.getItem("recipe")]);
+  }, [updateCounter]);
 
   // console.log(window);
   return (
@@ -168,9 +167,7 @@ const Navbar = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1" onClick={handleLogout}>
-                    Log out
-                  </Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
                   <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

@@ -8,14 +8,18 @@ import ContactUs from "./ContactUs";
 import "./index.css";
 import Chef from "../Chef/Chef";
 import ChefParent from "../Chef/ChefParent";
-const Index = () => {
+const Index = ({ setUpdateCounter, updateCounter }) => {
   const [chefClicked, setChefClicked] = useState([]);
   console.log("vipin", chefClicked);
   return (
     <div>
       {chefClicked?.length > 0 ? (
         <div>
-          <ChefParent chefClicked={chefClicked} />
+          <ChefParent
+            chefClicked={chefClicked}
+            setUpdateCounter={setUpdateCounter}
+            updateCounter={updateCounter}
+          />
           {/* <Chef chefClicked={chefClicked} /> */}
         </div>
       ) : (

@@ -5,10 +5,11 @@ import { CiSaveDown2 } from "react-icons/ci";
 import { AiOutlineLike } from "react-icons/ai";
 import img2 from "../../media/baked-meatballs-chicken-fillet-tomato-sauce.jpg";
 import img from "../../media/Chef-character-design-premium-vector-PNG.png";
-const RecipeComponent = () => {
+const RecipeComponent = ({ setUpdateCounter, updateCounter }) => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isVideo, setIsVideo] = useState(false);
   const saveToLocaleStorage = () => {
+    console.log("vips");
     let allData = [];
     let allRecipe = localStorage.getItem("recipe")
       ? JSON.parse(localStorage.getItem("recipe"))
@@ -18,13 +19,22 @@ const RecipeComponent = () => {
         return data;
       }
     });
-    if (allRecipe) {
+    let isPresent = allRecipe?.filter((recipe) => {
+      if (recipe.id === selectedRecipe) {
+        return data;
+      }
+    });
+    console.log(isPresent);
+    if (isPresent?.length > 0) {
+      allData = [...allRecipe];
+    } else if (allRecipe) {
       allData = [...allRecipe, ...data];
     } else {
       allData = [...data];
     }
-    console.log("vipin", data, allData, allRecipe);
+    console.log("vipin", data, allData, allRecipe, typeof 1);
     localStorage?.setItem("recipe", JSON.stringify(allData));
+    // setUpdateCounter(updateCounter + 1);
   };
   const recipes = [
     {
@@ -224,7 +234,7 @@ Serve Dum Aloo hot with roti, naan, or rice.",
           style={{
             display: "flex",
             // justifyContent: "space-around",
-            // border: "1px solid red",
+            border: "1px solid red",
             width: "30%",
             flexDirection: "column",
             height: "400px",
@@ -236,13 +246,14 @@ Serve Dum Aloo hot with roti, naan, or rice.",
             // borderRadius: "8px",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
             margin: "10px",
+            overflowY: "scroll",
           }}
         >
           {recipes.map((recipe) => (
             <div
               key={recipe.id}
               style={{
-                border: "1px solid #ccc",
+                border: "1px solid red",
                 padding: "10px",
                 margin: "10px",
                 cursor: "pointer",

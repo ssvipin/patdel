@@ -99,6 +99,7 @@ const SavedRecipe = () => {
               // borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
               margin: "10px",
+              overflowY: "scroll",
             }}
           >
             {recipes.map((recipe) => (
