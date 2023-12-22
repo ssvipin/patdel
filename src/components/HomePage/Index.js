@@ -28,7 +28,7 @@ const Index = ({ setUpdateCounter, updateCounter }) => {
           <SubAbout />
           <ChefCards setChefClicked={setChefClicked} />
           <Pricing />
-          {/* <ContactUs /> */}
+          <ContactUs />
         </div>
       )}
     </div>
